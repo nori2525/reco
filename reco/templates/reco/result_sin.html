@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>結果</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <div class="input">
+            <p>選択した画像</p>
+            {%for i in filename%}
+                <img src="{{i}}">
+            {%endfor%}
+        </div>
+        <div class="user">
+            <p>以下ユーザーが推薦されました</p>
+            <ul>
+                {%for row in res%}
+                <li>
+                    <p>{{row.0}}</p>
+                    <img src="{% static  row.1 %}">
+                </li>
+                {%endfor%}
+            </ul>
+        </div>
+    </body>
+</html>
